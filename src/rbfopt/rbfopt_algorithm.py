@@ -478,10 +478,10 @@ class RbfoptAlgorithm:
             print(' {:5d}'.format(self.itercount) +
                   ' {:6d}'.format(self.cyclecount) +
                   '  {:15s}'.format(tag) +
-                  ' {:18.6f}'.format(obj_value) +
+                  ' {:18.6f}'.format(float(obj_value)) +
                   '{:s}'.format('~' if node_is_noisy else ' ') +
-                  ' {:8.2f}'.format(time.time() - self.start_time) +
-                  ' {:8.2f}'.format(gap*100) +
+                  ' {:8.2f}'.format(float(time.time() - self.start_time)) +
+                  ' {:8.2f}'.format(float(gap*100)) +
                   ' {:s}'.format('*' if (gap < self.best_gap_shown and
                                          obj_value == self.fbest) else ' '),
                   file=self.output_stream)
@@ -510,8 +510,8 @@ class RbfoptAlgorithm:
               ' opt_time {:7.2f}'.format(time.time() - self.start_time) + 
               ' tot_time {:7.2f}'.format(self.elapsed_time) + 
               ' obj{:s}'.format('~' if node_is_noisy else ' ') +
-              ' {:15.6f}'.format(self.fbest) + 
-              ' gap {:6.2f}'.format(100*gap),
+              ' {:15.6f}'.format(float(self.fbest)) + 
+              ' gap {:6.2f}'.format(float(100*gap)),
               file=self.output_stream)
         self.output_stream.flush()
     # -- end function
